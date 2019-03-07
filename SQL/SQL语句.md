@@ -1,10 +1,8 @@
-#
+# SQL语句： C U R D
 
-SQL语句： C U R D
+## C:create(增);  U:update(改);  R:read(查);  D:delete(删)
 
- C:create(增);  U:update(改);  R:read(查);  D:delete(删)
-
-查询：(在SQL语句中 表名和字段上加上  `` 运行速度会更快，也可以不加 )
+**查询**：(在SQL语句中 表名和字段上加上  `` 运行速度会更快，也可以不加 )
 
     select 字段，字段 from 表名  
     select `name`,`title` from `person_info`  （查询表 person_info 中的 name 和 title 字段中的数据）
@@ -34,15 +32,15 @@ SQL语句： C U R D
     select * from `person_info` where `name` like 'lin%'
     select * from `person_info` where `name` like 'lin___' （这里的_为占位符，这里占3个位置，匹配lin后面有3个字符的字段）
 
-添加：
+__添加:__
 
     insert into 表名 (字段1，字段2,...字段n) value(值1，值2，...,值n)
 
-修改：
+**修改:**
 
     update 表名 set 字段1=值1，字段2=值2,...,字段n=值n where 条件
     update person_info  set `name`='user'，`tel`='电话' where `id`=2
-删除：
+**删除:**
 
     delete from 表名 where 条件
     delete from person_info `name`='lin'
