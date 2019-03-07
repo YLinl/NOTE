@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="root">
+   <child-one>
+     <template slot-scope='propers'>
+       <ul>
+         <li><h2>{{propers.item}}</h2></li>
+       </ul>
+     </template>
+   </child-one>
+   <child-two></child-two>
+  <div>{{total}}</div>
+  </div>
+  <script>
+   Vue.component('child-one', {
+     data:function(){
+       return {list:[1,2,3,4,5]}
+     },
+     template:`<div>child one <slot v-for = 'item of list' :item=item></slot></div>`,
+     methods:{
+        handleClick:function(){
+          this.number++;
+          this.$emit('change');
+        }
+     }
+   })
+   Vue.component('child-two', {
+     template:`<div>child two</div>`
+   })
+   var vm = new Vue({
+     el:'#root',
+     data:{
+       total:0
+     },
+     methods:{
+      handleChange: function(){
+           this.total = this.$refs.counter1.number + this.$refs.counter2.number;
+       }
+     }
+   })
+  </script>
+</body>
+</html>
