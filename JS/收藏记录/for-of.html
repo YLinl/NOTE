@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{title}}</h1>
+  </div>
+  <script>
+    window.onload = function(){
+       var model = {
+         __prototype__ : {},
+         title: '网易云课堂'
+       }
+       mv(model,"title",model.title);
+       console.log(model.title);
+       model.title = '网易云课堂-前端开发'
+       var a =model.title 
+       console.log(a);
+       function mv(obj,prop,value){
+           Object.defineProperty(obj,prop,{
+             enumerable: true,
+             configurable: true,
+             get: function(){
+               console.log('getter...');
+               return value;
+             },
+             set: function(nvalue){
+                console.log('setter')
+                if(nvalue!= value){
+                  value = nvalue;
+                }
+             }
+           })
+       }
+       window.setTimeout(function(){
+         model.title = '网易云课堂-前端gaojia开发';
+       },2000)
+    }
+     
+    </script>
+</body>
+</html>
