@@ -23,5 +23,3 @@ git的设置文件为.gitconfig,它可以在多用户主目录下(全局配置)�
 ```txt
 #显示当前配置
 git config --list
- 
- 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // let promise = new Promise(function(resolve,reject){
+    //     console.log('Promise!');
+    //     resolve()
+    // });
+    // console.log('Hi');   //先输出Promise, 后输出Hi;
+
+// var a = [1,2,3,4,5,7].map(id=>{
+// console.log("id:  "+id)
+// return id;
+// });
+// Promise.all(a).then((value)=>{
+// console.log("value:  "+value);
+// });
+
+// let promise = Promise.resolve(42);
+// promise.then(value=>{
+//     console.log("value:  "+value);
+// });
+// console.log('Hi'); //先输出Hi,后输出 value: 42；
+let p1 = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        console.log(1)
+        resolve()
+    },4000)
+})
+// console.log(p1)
+    </script>
+</body>
+</html>
