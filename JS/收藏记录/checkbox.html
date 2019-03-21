@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+
+    <input type='checkbox' checked class='fruit'>苹果</input>
+    <input type='checkbox' class='fruit'>香蕉</input>
+    <input type='checkbox' class='fruit'>梨子</input>
+    <input type='checkbox' class='fruit'>西瓜</input>
+    <input type='checkbox' class='fruitAll'>全选</input>
+    <button id='submmit'>提交</button>
+  </div>
+  <script>
+    let fruit = document.querySelectorAll('.fruit');
+    let fruitAll = document.querySelector('.fruitAll');
+    let submmit = document.getElementById('submmit');
+
+    // check()
+    function check() {
+      fruitAll.checked = [...fruit].every(item => item.checked);
+      submmit.disabled = ![...fruit].some(item => item.checked)
+    }
+
+    fruitAll.addEventListener('click', (e) => {
+      [...fruit].forEach((item) => item.checked = e.target.checked)
+    });
+    [...fruit].forEach(element => {
+      element.onclick = function () {
+        check()
+      }
+    });
+  </script>
+</body>
+
+</html>
