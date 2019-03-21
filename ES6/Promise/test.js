@@ -1,11 +1,2 @@
-let rejected;
-rejected = Promise.reject(new Error("Explosion!"));
-    process.on('rejectionHandled', function ( promise) {
-        console.log(rejected === promise);
-    });
-
-setTimeout(function(){
-    rejected.catch(function(value){
-        console.log(value.message)
-    })
-},1000)
+let set =[...new Set([1,2,3,4,5,5,5])];
+console.log(set)

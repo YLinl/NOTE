@@ -27,13 +27,33 @@
 //     console.log("value:  "+value);
 // });
 // console.log('Hi'); //先输出Hi,后输出 value: 42；
-let p1 = new Promise((resolve,reject)=>{
-    setTimeout(()=>{
-        console.log(1)
-        resolve()
-    },4000)
-})
+// let p1 = new Promise((resolve,reject)=>{
+//     setTimeout(()=>{
+//         console.log(1)
+//         resolve()
+//     },4000)
+// })
 // console.log(p1)
+// var fac = function f(arg){
+    
+//    return arg <=1?arg=1:arg*f(--arg);
+// }
+// console.log(fac(4))
+//  let PageHandler = {
+//      id :'123456',
+//      init:function(){
+//          document.addEventListener('click',e=>this.doSomething(e.type))
+//      },
+//      doSomething: function(type){
+//          console.log("Handling "+ type + ' for '+ this.id);
+//      }
+//  }
+//  PageHandler.init()
+// console.log(document)
+
+var arr = [1,2,4,30,3];
+var maxValue=Math.max.apply(Math,arr);
+console.log(maxValue)
     </script>
 </body>
 </html>
