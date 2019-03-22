@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Map</title>
+</head>
+<body>
+ 
+
+ <script>
+  
+  const Person = (function(){
+      let _gender = new Map();
+
+      function P(name, gender) {
+          this.name = name;
+          _gender.set(this,gender);
+      }
+      P.prototype.getGender = function (){
+         return _gender.get(this);
+      }
+      P.prototype.setGender = function (gender){
+          _gender.set(this,gender);
+      }
+      P.getGenders = function(){
+          return _gender;
+      }
+      return P
+  })();
+
+  var p1 = new Person('林','男');
+  var p2 = new Person('雅','女');
+  p2.setGender('nan')
+  p1.getGender()
+  p2.getGender();
+//   console.log(p1.getGenders())
+ </script>
+</body>
+</body>
+</html>

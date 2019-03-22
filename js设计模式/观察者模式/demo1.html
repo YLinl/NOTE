@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+</head>
+ 
+
+<body>
+    <script>
+        class Subject {
+            constructor(name) {
+                this.state = 0;
+                this.name = name;
+                this.observers = [];
+            }
+            getState() {
+                return this.state;
+            }
+            setState(state) {
+                this.state = state;
+                this.notifyAllObservers();
+            }
+            attach(observer) {
+                this.observers.push(observer);
+            }
+            notifyAllObservers() {
+                this.observers.forEach(observers => {
+                    observers.update();
+                });
+            }
+        }
+        class Observer {
+            constructor(name, subject) {
+                this.name = name;
+                this.subject = subject;
+                this.subject.attach(this)
+            }
+            update() {
+                console.log(`${this.name} update, state:${this.subject.getState()} `)
+            }
+        }
+        var s = new Subject();
+        var o1 = new Observer('o1',s);
+        var o2 = new Observer('o2',s);
+        var o3 = new Observer('o3',s);
+       s.setState(1)
+       s.setState(2)
+       s.setState(3)
+    </script>
+</body>
+
+</html>
