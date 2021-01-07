@@ -212,7 +212,11 @@ git push origin :refs/tags/v0.1.2
   git remote add origin ssh地址
   ```
 
+* git 自动凭证
+
+  ```
   
+  ```
 
-
+### 八、gitignore
 
