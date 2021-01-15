@@ -96,7 +96,7 @@ git remote add origin 地址;  默认添加在本地配置文件中(--local)
  git checkout --'文件名'  //可以将工作区变动的文件恢复到没有变动前的样子
 
 8.分支
-git branch  //查看分支
+git branch  //查看分支 
 
 git branch '分支名' //创建分支
 
