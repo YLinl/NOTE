@@ -69,7 +69,7 @@ npx sequelize init
 使用如下命令创建数据库：
 
 ```
-sequelize db:create --charset 'utf8mb4'//这里会根据config.json自动创建数据库
+npx sequelize db:create --charset 'utf8mb4'//这里会根据config.json自动创建数据库
 ```
 
 使用如下命令删除数据库：
@@ -325,4 +325,57 @@ db:seed:undo:all
 ```
 
 ![image-20210115164026824](E:\Program\Note\NOTE\Sequelize\Sequelize.assets\image-20210115164026824.png)
+
+## sequelize
+
+### findAll()查询语句
+
+```
+1. `// 查询所有用户` const users = await User.findAll();//findAll 方法从数据库中读取整个表 ;SELECT * FROM ...
+```
+
+```
+2.选择某些特定属性,可以使用 attributes 参数：Model.findAll({attributes: ['name', 'id']}) //只会查询出name和id 字段
+```
+
+```
+3.排除某些属性 Model.findAll({attributes: { exclude: ['baz'] }});
+```
+
+```
+4.where 参数用于过滤查询.where 子句有很多运算符,可以从 Op 中以 Symbols 的形式使用.
+Post.findAll({
+  where: {
+    authorId: 2
+  }
+});
+ let data = await models.Categroy.findAll(
+        { attributes: ['name', 'id'], where: {
+    id: 2
+  } })
+```
+
+### UPDATE() 查询
+
+```
+await User.update({ lastName: "Doe" }, {
+  where: {
+    lastName: null
+  }
+});
+```
+
+### DELETE 查询
+
+```
+await User.destroy({
+  where: {
+    firstName: "Jane"
+  }
+});
+要销毁所有内容,可以使用 TRUNCATE;
+await User.destroy({
+  truncate: true
+});
+```
 
